@@ -11,7 +11,7 @@ export default function TopicList(){
             </div>
             <div>
                 <RemoveBtn />
-                <Link href={"/editTopic123"}>
+                <Link href={"/editTopic"}>
                 <HiPencilAlt size={24} />
                 </Link>
             </div>
