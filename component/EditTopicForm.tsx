@@ -1,4 +1,12 @@
-export default function EditTopicForm() {
+"use client";
+interface EditTopicFormProps{
+  id: any;
+  title: string;
+  description: string;
+}
+
+const EditTopicForm:React.FC<EditTopicFormProps> = ({id,title,description}) =>{
+  console.log("sfsdf",description);
   return (
     <form style={{ display: "flex", flexDirection: "column" }}>
       <input

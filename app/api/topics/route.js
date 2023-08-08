@@ -23,6 +23,6 @@ export async function DELETE(request){
     if(!id){
         return NextResponse.json({messsage: "Topic Not Found"},{status:404});
     }
-    return NextResponse.json({messsage: "Topic Deleted"},{status:true});
+    return NextResponse.json({messsage: "Topic Deleted"},{status:200});
 
 }

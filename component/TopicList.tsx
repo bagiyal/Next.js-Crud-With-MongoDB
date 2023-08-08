@@ -16,21 +16,6 @@ const getTopics = async () => {
     console.log("Error Loading Error", error);
   }
 };
-const delTopics = async (id) => {
-  try{
-    const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
-      method: "DELETE",
-      cache: "no-store",
-    });
-    if (!res.ok) {
-      throw new Error("Failed to delete topics");
-    }
-    // console.log("--- res --",res);
-    return res.json();
-  }catch (error) {
-   console.log("Error Loading Error", error);
-  };
-}
 export default async function TopicList() {
   const data  = await getTopics();
   console.log("=>+>+>",data);
@@ -53,7 +38,7 @@ export default async function TopicList() {
             <div>{topics.description}</div>
           </div>
           <div>
-            <RemoveBtn />
+            <RemoveBtn id={topics._id} />
             <Link href={`/editTopic/${topics._id}`}>
               <HiPencilAlt size={24} />
             </Link>
