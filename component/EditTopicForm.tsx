@@ -35,3 +35,5 @@ const EditTopicForm:React.FC<EditTopicFormProps> = ({id,title,description}) =>{
     </form>
   );
 }
+
+export default EditTopicForm;

@@ -4,7 +4,7 @@ interface EditTopicProps {
   params: any;
 }
 const page: React.FC<EditTopicProps> = async ({ params }) => {
-  const getTopics = async () => {
+  const getTopics = async (id: any) => {
     try {
       const res = await fetch("http://localhost:3000/api/topics", {
         cache: "no-store",
@@ -19,10 +19,12 @@ const page: React.FC<EditTopicProps> = async ({ params }) => {
     }
   };
   const { id } = params;
-  const { topics } = await getTopics(id);
-  // console.log("---",{topics});
-  const { title, description } = topics;
-  return <EditTopicForm id={id} title={title} description={description} />;
+  const { topic } = await getTopics(id);
+  console.log("---", topic);
+  if (topic) {
+    const { title, description } = topic;
+    return <EditTopicForm id={id} title={title} description={description} />;
+  }
 };
 
 export default page;
